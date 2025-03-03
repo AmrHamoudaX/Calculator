@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: black;
+}
+
+.first {
+  height: 62px;
+}
+.first.row.square {
+  /*flex: 2;*/
+  width: 100px;
+}
+
+input {
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  border: 2px solid black;
+  width: 296px;
+}
+.row {
+  display: flex;
+  width: 400px;
+}
+.square {
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  background: grey;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px;
+  flex: 1;
+}
+.square p {
+  padding-top: 15px;
+}
