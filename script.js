@@ -4,14 +4,7 @@ const input  = document.querySelector("input")
 
 
 input.value = ''
-//square.forEach( (e) => addEventListener("click", function() {
-//if (e.textContent == 0) {
-// input.value += 0;       
-//    }
-//    console.log(e.textContent)
-//}))
-//
-//
+
 square.forEach( (key) => key.addEventListener("click", function () {
 if (key.textContent == "C") {
         return input.value = ''
@@ -74,4 +67,19 @@ function sum(...numbers) {
     let summedNumbers = numbers.reduce( (total, current) => total +=current)
     return summedNumbers
 }
-console.log(sum(2, 3, 4, 32))
+
+
+function minus (...numbers) {
+    let minusedNumbers = numbers.reduce( (total, current) => total -= current)
+    return minusedNumbers
+}
+
+function multiply(...numbers) {
+    let multiplied = numbers.reduce( (total, current) => total *= current)
+    return multiplied
+}
+function divide(...numbers){
+    let divided = numbers.reduce( (total, current) => total /= current)
+    return divided
+}
+
