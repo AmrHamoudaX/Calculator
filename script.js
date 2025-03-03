@@ -2,10 +2,10 @@ const square = Array.from(document.querySelectorAll(".square p"));
 const input  = document.querySelector("input")
 
 
-
 input.value = ''
 
 square.forEach( (key) => key.addEventListener("click", function () {
+    console.log(key)
 if (key.textContent == "C") {
         return input.value = ''
     } else if (Number(key.textContent) === 1){
@@ -21,7 +21,7 @@ if (key.textContent == "C") {
         return input.value += 3
     
     } else if (key.textContent === "/"){
-        return input.value += "/"
+        return input.value += " / "
     
     } else if (Number(key.textContent) === 4){
         return input.value += 4
@@ -33,7 +33,7 @@ if (key.textContent == "C") {
         return input.value += 6
     
     } else if (key.textContent === "*"){
-        return input.value += "*"
+        return input.value += " * "
     
     } else if (Number(key.textContent) === 7){
         return input.value += 7
@@ -45,16 +45,68 @@ if (key.textContent == "C") {
         return input.value += 9
 
     } else if (key.textContent === "-"){
-        return input.value += "-" 
+        return input.value += " - " 
 
     } else if (Number(key.textContent) === 0){
         return input.value += 0
     
     } else if (key.textContent === "."){
-        return input.value += "."
+        return input.value += " . "
     
     } else if (key.textContent === "="){
-        return input.value += "="
+
+            //Return output
+        function operate(){
+        let inputGiven = input.value 
+        let inputGivenArray = []
+
+        if(inputGiven.includes("+") ){
+
+            inputGivenArray = inputGiven.split("+")
+            inputGiven = sum(Number(inputGivenArray[0]), Number(inputGivenArray[1]))
+                if (Number.isNaN(inputGiven)){
+                    return alert("Oyy Baka!! Stop messing my app")
+                } else {
+                    input.value = inputGiven
+                }
+
+        } else if(inputGiven.includes("-") ){
+
+            inputGivenArray = inputGiven.split("-")
+            inputGiven = minus(inputGivenArray[0], inputGivenArray[1])
+                if (Number.isNaN(inputGiven)){
+                    return alert("Oyy Baka!! Stop messing my app")
+                } else {
+                    input.value = inputGiven
+                }
+
+        } else if(inputGiven.includes("*") ){
+
+            inputGivenArray = inputGiven.split("*")
+            inputGiven = multiply(inputGivenArray[0], inputGivenArray[1])
+                if (Number.isNaN(inputGiven)){
+                    return alert("Oyy Baka!! Stop messing my app")
+                } else {
+                    input.value = inputGiven
+                }
+
+        } else if(inputGiven.includes("/") ){
+
+            inputGivenArray = inputGiven.split("/")
+             inputGiven = divide(inputGivenArray[0], inputGivenArray[1])
+                if (Number.isNaN(inputGiven)){
+                    return alert("Oyy Baka!! Stop messing my app")
+                } else {
+                    return input.value = inputGiven
+                }
+
+        } else {
+                return alert("oyyy Baka!! stopy messing my app")
+            }
+        }
+
+        operate()
+        
 
     } else if (key.textContent === "+"){
         return input.value += "+"
@@ -63,23 +115,18 @@ if (key.textContent == "C") {
 
 
 
-function sum(...numbers) {
-    let summedNumbers = numbers.reduce( (total, current) => total +=current)
-    return summedNumbers
+        function sum(number1, number2) {
+            return Number(number1) + Number(number2)
+        }
+
+function minus (number1, number2) {
+    return number1 - number2
 }
 
-
-function minus (...numbers) {
-    let minusedNumbers = numbers.reduce( (total, current) => total -= current)
-    return minusedNumbers
+function multiply(number1, number2) {
+    return number1 * number2
 }
-
-function multiply(...numbers) {
-    let multiplied = numbers.reduce( (total, current) => total *= current)
-    return multiplied
-}
-function divide(...numbers){
-    let divided = numbers.reduce( (total, current) => total /= current)
-    return divided
+function divide(number1, number2){
+    return number1 / number2
 }
 
